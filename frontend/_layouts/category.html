@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<h1>{{ page.document.name }}</h1>
+
+{%- if page.document.articles.size > 0 -%}
+<ul class="article-list">
+    {%- for article in page.document.articles -%}
+    <li>
+        <span class="article-meta">{{ article.publishedAt | date_to_string }}</span>
+        <h3>
+            <a class="article-link" href="/articles{{ article.slug | relative_url }}">
+                {{ article.title }}
+            </a>
+        </h3>
+        <!-- Display an excerpt of the article -->
+        <p>{{ article.content | markdownify | strip_html | truncatewords: 10 }}</p>
+    </li>
+    {%- endfor -%}
+</ul>
+{%- endif -%}
