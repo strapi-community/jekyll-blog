@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<img src="{{ site.env.API_URL | append: page.document.image.url }}">
 <h1>{{page.document.title}}</h1>
 <span class="article-meta">{{ page.document.publishedAt | date_to_string }}</span>
 {{ page.document.content | markdownify }}
